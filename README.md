@@ -24,7 +24,7 @@ Rewrite 'XXXX' of path.txt
 2-1 ccSAG_cross_reference_cleaning.sh
 
 In this script,  
-・Quality control of pairend reads by fastqc, fastx_toolkit and prinseq  　
+・Quality control of pairend reads by fastqc, fastx_toolkit and prinseq  
 ・Assembling using each pairend read file by SPAdes  
 ・Cross-reference read cleaning using bwa  
 ・Assembling using all cleaned reads by SPAdes  
