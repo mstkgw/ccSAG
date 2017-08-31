@@ -1,7 +1,9 @@
 1. Preparation
 
 1-1 Confirmation of required tools
+
 requirements:
+
 	perl
 	python
 	java
