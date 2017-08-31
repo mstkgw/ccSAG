@@ -25,10 +25,10 @@ Rewrite 'XXXX' of path.txt
 
 In this script, 
 
-Quality control of pairend reads by fastqc, fastx_toolkit and prinseq
-Assembling using each pairend read file by SPAdes
-Cross-reference read cleaning using bwa
-Assembling using all cleaned reads by SPAdes
+Quality control of pairend reads by fastqc, fastx_toolkit and prinseq  
+Assembling using each pairend read file by SPAdes  
+Cross-reference read cleaning using bwa  
+Assembling using all cleaned reads by SPAdes  
 	
 are conducted.
 
