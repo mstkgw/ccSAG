@@ -58,12 +58,12 @@ In this script,
  connecting cleaned contigs by contig clamps using blastn  
 are conducted.  
 
-At first, make a config of ccSAG_clamping.sh including  
- Output directory of clamped contigs and intermediate files  
- Directory containing input pairend read files for assembling contig clamps  
- Output cleaned contigs of ccSAG_cross_reference_cleaning.sh  
- Output clamped contigs  
- Assemble condition without input fastq  
+At first, make a config of ccSAG_clamping.sh including  
+  Output directory of clamped contigs and intermediate files  
+  Directory containing input pairend read files for assembling contig clamps  
+  Output cleaned contigs of ccSAG_cross_reference_cleaning.sh  
+  Output clamped contigs  
+  Assemble condition without input fastq  
 (example is ccSAG_clamping.config)  
 
 Then, execute ccSAG_clamping.sh  
