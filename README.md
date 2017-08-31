@@ -41,7 +41,8 @@ At first, make a config of ccSAG_cross_reference_cleaning.sh including
 (example is ccSAG_cross_reference_cleaning.config)  
 
 Then, execute ccSAG_cross_reference_cleaning.sh  
-command is here:  
+command is here:
+
 	bash ccSAG_cross_reference_cleaning.sh config  
 
 As the output files,  
@@ -49,7 +50,8 @@ As the output files,
  Cleaned read file of each SAG is in the "output directory/QC" named "*_cleaned.fastq"  
 
 example SAG data is contained in "example" directory.  
-try   
+try
+
 	bash ccSAG_cross_reference_cleaning.sh example/example_ccSAG_cross_reference_cleaning.config  
 
 2-2 ccSGA_clamping.sh  
@@ -67,6 +69,7 @@ At first, make a config of ccSAG_clamping.sh including
 
 Then, execute ccSAG_clamping.sh  
 command is here:  
+
         bash ccSAG_clamping.sh config  
 
 As the output files,  
@@ -74,4 +77,5 @@ As the output files,
 
 example config is prepared in "example" directory as 2-1.  
 try after executing 2-1(ccSAG_cross_reference_cleaning.sh)  
+
 	bash ccSAG_clamping.sh example/example_ccSAG_clamping.config  
