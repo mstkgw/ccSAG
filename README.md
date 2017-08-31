@@ -56,8 +56,9 @@ try
 
 2-2 ccSGA_clamping.sh  
 In this script,  
- Assembling contig clamps using non-cleaned reads by SPAdes  
- connecting cleaned contigs by contig clamps using blastn  
+ ・Assembling contig clamps using non-cleaned reads by SPAdes  
+ connecting cleaned contigs by contig clamps using blastn  
+are conducted.  
 
 At first, make a config of ccSAG_clamping.sh including  
  Output directory of clamped contigs and intermediate files  
