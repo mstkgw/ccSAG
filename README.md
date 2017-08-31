@@ -59,9 +59,9 @@ In this script,
 are conducted.  
 
 At first, make a config of ccSAG_clamping.sh including  
- ・Output directory of clamped contigs and intermediate files  
- ・Directory containing input pairend read files for assembling contig clamps  
- ・Output cleaned contigs of ccSAG_cross_reference_cleaning.sh  
+ Output directory of clamped contigs and intermediate files  
+ Directory containing input pairend read files for assembling contig clamps  
+ Output cleaned contigs of ccSAG_cross_reference_cleaning.sh  
  Output clamped contigs  
  Assemble condition without input fastq  
 (example is ccSAG_clamping.config)  
@@ -69,12 +69,12 @@ At first, make a config of ccSAG_clamping.sh including
 Then, execute ccSAG_clamping.sh  
 command is here:  
 
-        bash ccSAG_clamping.sh config  
+	bash ccSAG_clamping.sh config  
 
 As the output files,  
  Clamped contig file is in the desinated output directory  
 
 example config is prepared in "example" directory as 2-1.  
-try after executing 2-1(ccSAG_cross_reference_cleaning.sh)  
+try after executing 2-1(ccSAG_cross_reference_cleaning.sh)
 
 	bash ccSAG_clamping.sh example/example_ccSAG_clamping.config  
