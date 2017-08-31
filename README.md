@@ -15,20 +15,28 @@ requirements:
 	blastn
 
 1-2 Making a path
+
 Rewrite 'XXXX' of path.txt
 
 
 2. Usage
 
 2-1 ccSAG_cross_reference_cleaning.sh
+
 In this script, 
+
  quality control of pairend reads by fastqc, fastx_toolkit and prinseq
+ 
  Assembling using each pairend read file by SPAdes
+ 
  cross-reference read cleaning using bwa
+ 
  Assembling using all cleaned reads by SPAdes
+ 
 are conducted.
 
 At first, make a config of ccSAG_cross_reference_cleaning.sh including
+
  Output directory of cleaned contigs and reads or intermediate files
  Directory containing input pairend read files
  Output cleaned contigs
