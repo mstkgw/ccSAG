@@ -1,6 +1,6 @@
-1. Preparation
+##1. Preparation
 
-1-1 Confirmation of required tools
+#1-1 Confirmation of required tools
 
 requirements:
 
@@ -14,20 +14,20 @@ requirements:
 	bwa
 	blastn
 
-1-2 Making a path
+#1-2 Making a path
 
 Rewrite 'XXXX' of path.txt
 
 
-2. Usage
+##2. Usage
 
-2-1 ccSAG_cross_reference_cleaning.sh  
+#2-1 ccSAG_cross_reference_cleaning.sh  
 
 In this script, following steps are conducted.  
-*Quality control of pairend reads by fastqc, fastx_toolkit and prinseq  
-*Assembling using each pairend read file by SPAdes  
-*Cross-reference read cleaning using bwa  
-*Assembling using all cleaned reads by SPAdes  
+Quality control of pairend reads by fastqc, fastx_toolkit and prinseq  
+Assembling using each pairend read file by SPAdes  
+Cross-reference read cleaning using bwa  
+Assembling using all cleaned reads by SPAdes  
 
 At first, make a config of ccSAG_cross_reference_cleaning.sh including  
 
