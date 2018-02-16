@@ -21,19 +21,19 @@
 
 ## 2-1 ccSAG_cross_reference_cleaning.sh  
 
-###### In this script, following steps are conducted.  
+#### In this script, following steps are conducted.  
 * Quality control of pairend reads by fastqc, fastx_toolkit and prinseq  
 * Assembling using each pairend read file by SPAdes  
 * Cross-reference read cleaning using bwa  
 * Assembling using all cleaned reads by SPAdes  
   
 
-###### At first, make a config of ccSAG_cross_reference_cleaning.sh including  
+#### At first, make a config of ccSAG_cross_reference_cleaning.sh including  
 * Output directory of cleaned contigs and reads or intermediate files  
 * Directory containing input pairend read files  
 * Output cleaned contigs  
 * Assemble condition without input fastq  
-###### (example is ccSAG_cross_reference_cleaning.config)  
+#### (example is ccSAG_cross_reference_cleaning.config)  
   
 
 Then, execute ccSAG_cross_reference_cleaning.sh  
