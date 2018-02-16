@@ -23,12 +23,11 @@ Rewrite 'XXXX' of path.txt
 
 2-1 ccSAG_cross_reference_cleaning.sh  
 
-In this script,  
+In this script, following steps are conducted.  
  Quality control of pairend reads by fastqc, fastx_toolkit and prinseq  
  Assembling using each pairend read file by SPAdes  
  Cross-reference read cleaning using bwa  
  Assembling using all cleaned reads by SPAdes  
-are conducted.  
 
 At first, make a config of ccSAG_cross_reference_cleaning.sh including  
 
@@ -53,10 +52,9 @@ try
 	bash ccSAG_cross_reference_cleaning.sh example/example_ccSAG_cross_reference_cleaning.config  
 
 2-2 ccSGA_clamping.sh  
-In this script,  
+In this script, following steps are conducted.
  Assembling contig clamps using non-cleaned reads by SPAdes  
  connecting cleaned contigs by contig clamps using blastn  
-are conducted.  
 
 At first, make a config of ccSAG_clamping.sh including  
   Output directory of clamped contigs and intermediate files  
