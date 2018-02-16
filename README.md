@@ -26,7 +26,7 @@ In this script, following steps are conducted.  
 * Assembling using each pairend read file by SPAdes  
 * Cross-reference read cleaning using bwa  
 * Assembling using all cleaned reads by SPAdes  
-
+  
 
 At first, make a config of ccSAG_cross_reference_cleaning.sh including  
 * Output directory of cleaned contigs and reads or intermediate files  
@@ -34,7 +34,7 @@ At first, make a config of ccSAG_cross_reference_cleaning.sh including  
 * Output cleaned contigs  
 * Assemble condition without input fastq  
 (example is ccSAG_cross_reference_cleaning.config)  
-
+  
 
 Then, execute ccSAG_cross_reference_cleaning.sh  
 command is here:
@@ -45,7 +45,7 @@ command is here:
 As the output files,  
 * Cleaned contig file from all cleaned reads is in the desinated output directory.  
 * Cleaned read file of each SAG is in the "output directory/QC" named "*_cleaned.fastq".  
-
+  
 
 example SAG data is contained in "example" directory.  
 try
@@ -57,7 +57,7 @@ try
 In this script, following steps are conducted.  
 * Assembling contig clamps using non-cleaned reads by SPAdes  
 * connecting cleaned contigs by contig clamps using blastn  
-
+  
 
 At first, make a config of ccSAG_clamping.sh including  
 * Output directory of clamped contigs and intermediate files  
@@ -66,17 +66,17 @@ At first, make a config of ccSAG_clamping.sh including  
 * Output clamped contigs  
 * Assemble condition without input fastq  
 (example is ccSAG_clamping.config)  
-
+  
 
 Then, execute ccSAG_clamping.sh  
 command is here:  
 
 	bash ccSAG_clamping.sh config  
-
+  
 
 As the output files,  
 * Clamped contig file is in the desinated output directory  
-
+  
 
 example config is prepared in "example" directory as 2-1.  
 try after executing 2-1(ccSAG_cross_reference_cleaning.sh)
