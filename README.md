@@ -30,7 +30,7 @@
 
 #### At first, make a config of ccSAG_cross_reference_cleaning.sh including  
 * Output directory of cleaned contigs and reads or intermediate files  
-* Directory containing input pairend read files  
+* Directory containing input paired-end read files  
 * Output cleaned contigs  
 * Assemble condition without input fastq  
 #### (example is ccSAG_cross_reference_cleaning.config)  
@@ -43,7 +43,7 @@
 
 
 #### As the output files,  
-* Cleaned contig file from all cleaned reads is in the desinated output directory.  
+* Cleaned contig file from all cleaned reads is in the assigned output directory.  
 * Cleaned read file of each SAG is in the "output directory/QC" named "*_cleaned.fastq".  
   
 
@@ -75,7 +75,7 @@
   
 
 #### As the output files,  
-* Clamped contig file is in the desinated output directory  
+* Clamped contig file is in the assigned output directory  
   
 
 #### example config is prepared in "example" directory as 2-1.  
