@@ -12,10 +12,10 @@ contigkey=""
 contigstart=re.compile(">")
 
 for resultline in blastresult:
-        resultline = resultline.split("\t")
-        if int(resultline[3]) < length_threshold: continue
+	resultline = resultline.split("\t")
+	if int(resultline[3]) < length_threshold: continue
 	queryname = resultline[0].split("_")
-        if int(resultline[3]) > int(queryname[3]) - 100: continue
+	if int(resultline[3]) > int(queryname[3]) - 100: continue
 	resultkey = re.compile(resultline[0])
 	if resultkey.search(contigkey):
 		extractedcontigs.write(contigkey)
@@ -30,10 +30,10 @@ for resultline in blastresult:
 				extractedcontigs.write(line)
 				break
 		for line in inputcontigs:
-                        if contigstart.search(line):
-                                contigkey = line
-                                break
-                        extractedcontigs.write(line)
+			if contigstart.search(line):
+				contigkey = line
+				break
+			extractedcontigs.write(line)
 
 blastresult.close()
 inputcontigs.close()

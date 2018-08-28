@@ -13,16 +13,16 @@ args = parser.parse_args()
 ##################
 # Files
 ##################
-if args.inf != "none" and args.outf != "none":
-	try:
-		fi = open(args.inf)
-		fo = open(args.outf,"w")
-	except IOError:
-		print "Cannot recognize the filenames"
-	files = []
-else:
-	print "Please enter path for input/output files"
-	sys.exit()
+#if args.inf != "none" and args.outf != "none":
+#	try:
+#		fi = open(args.inf)
+#		fo = open(args.outf,"w")
+#	except IOError:
+#		print("Cannot recognize the filenames")
+#	files = []
+#else:
+#	print("Please enter path for input/output files")
+#	sys.exit()
 
 total_num = 0
 pair_num = 0
@@ -46,7 +46,7 @@ for ii,jj in enumerate(fi):
 	#
 	total_num += 1
 	if 1 in flags and 7 in flags:
-		if flag2num_all.has_key(flag_bin2): flag2num_all[flag_bin2] += 1
+		if flag_bin2 in flag2num_all: flag2num_all[flag_bin2] += 1
 		else: flag2num_all[flag_bin2] = 1
 		#
 		pair_num += 1
@@ -54,7 +54,7 @@ for ii,jj in enumerate(fi):
 			proper_pair += 1
 			#print data[0] + "\t" + data[1]
 		else:
-			if flag2num.has_key(flag_bin2): flag2num[flag_bin2] += 1
+			if flag_bin2 in flag2num: flag2num[flag_bin2] += 1
 			else: flag2num[flag_bin2] = 1
 	if 3 in flags:
 		unmapped_reads += 1

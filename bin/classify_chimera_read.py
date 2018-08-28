@@ -12,13 +12,11 @@ files = os.listdir(inpath)
 reads = 0
 for sam in files:
 	if sam[0:len(input_main)] != input_main or sam[-18:] != "_uniq_classify.sam" : continue
-	print sam
 	if reads == 0:
                 for line in open(inpath + "/" + sam):
                         reads += 1
 	data.append("")
 	samfile.append(open(inpath + "/" + sam))
-print reads
 
 normal_file = open(inpath + "/" + input_main + "_normal.sam",'w')
 chimera_file = open(inpath + "/" + input_main + "_chimera.sam",'w')
@@ -57,16 +55,16 @@ while i < int(reads):
 			normal_R2.write("@" + data[0][0] + "\n" + data[0][9] + "\n" + '+' + "\n" + data[0][10] + "\n")
 	elif normal < chimera and normal + chimera > 0:
 		chimera_file.write(mergesam + "\n")
-                if i % 2 == 1:
-		        chimera_R1.write("@" + data[0][0] + "\n" + data[0][9] + "\n" + '+' + "\n" + data[0][10] + "\n")
-                else:
-                        chimera_R2.write("@" + data[0][0] + "\n" + data[0][9] + "\n" + '+' + "\n" + data[0][10] + "\n")
+		if i % 2 == 1:
+			chimera_R1.write("@" + data[0][0] + "\n" + data[0][9] + "\n" + '+' + "\n" + data[0][10] + "\n")
+		else:
+			chimera_R2.write("@" + data[0][0] + "\n" + data[0][9] + "\n" + '+' + "\n" + data[0][10] + "\n")
 	else: 
 		unjudge_file.write(mergesam + "\n")
-                if i % 2 == 1:
-                        unjudge_R1.write("@" + data[0][0] + "\n" + data[0][9] + "\n" + '+' + "\n" + data[0][10] + "\n")
-                else:
-                        unjudge_R2.write("@" + data[0][0] + "\n" + data[0][9] + "\n" + '+' + "\n" + data[0][10] + "\n")
+		if i % 2 == 1:
+			unjudge_R1.write("@" + data[0][0] + "\n" + data[0][9] + "\n" + '+' + "\n" + data[0][10] + "\n")
+		else:
+			unjudge_R2.write("@" + data[0][0] + "\n" + data[0][9] + "\n" + '+' + "\n" + data[0][10] + "\n")
 normal_file.close()
 chimera_file.close()
 unjudge_file.close()
@@ -106,9 +104,9 @@ for line in before_cut:
 		flag[(i*2)+1] = match
 
 		flag[i*2] = str(bin(int(flag[i*2])))
-        	flag[i*2] = flag[i*2][2:][::-1]
+		flag[i*2] = flag[i*2][2:][::-1]
 	for i in range(len(data)):
-                if flag[i*2][4] != flag[-2][4]:
+		if flag[i*2][4] != flag[-2][4]:
 			flag[(i*2)+1].reverse()
 	double = []
 	for i in range(len(data)):

@@ -13,12 +13,12 @@ contigstart=re.compile(">")
 
 for resultline in blastresult:
 	data = []
-        resultline = resultline.split("\t")
-        if int(resultline[3]) < length_threshold:
+	resultline = resultline.split("\t")
+	if int(resultline[3]) < length_threshold:
 		contigkey[resultline[0]]="k"
 		continue
-        queryname = resultline[0].split("_")
-        if int(resultline[3]) > int(queryname[3]) - 100:
+	queryname = resultline[0].split("_")
+	if int(resultline[3]) > int(queryname[3]) - 100:
 		contigkey[resultline[0]]="r"
 		continue
 	contigkey[resultline[0]]="e"
@@ -31,7 +31,7 @@ for line in inputcontigs:
 			break
 		if not contigname[1:-1] in contigkey:
 			keepedcontigs.write(data)
-                        continue
+			continue
 		if contigkey[contigname[1:-1]] == "k":
 			keepedcontigs.write(data)
 			continue
