@@ -18,6 +18,10 @@ do
 ######
 # QC
 ######
+if [ -s $Outdir/QC/${file}_QC_R1_001.fastq ]; then
+    echo "Skipped ${file} QC."
+else
+
 # read 1
 fastqc $Seqdir/${file}_R1_001.fastq -j java -o $Outdir/QC > $Outdir/QC/${file}_R1_001_fastqc.stdout 2> $Outdir/QC/${file}_R1_001_fastqc.stderr
 fastq_quality_filter -v -Q 33 -q 25 -p 50 -i $Seqdir/${file}_R1_001.fastq -o $Outdir/QC/${file}_R1_001_step1.fastq > $Outdir/QC/${file}_R1_001_step1.stdout 2> $Outdir/QC/${file}_R1_001_step1.stderr
@@ -38,18 +42,32 @@ rm $Outdir/QC/${files[${A}]}*step*
 rm $Outdir/QC/${files[${A}]}*std*
 rm $Outdir/QC/${files[${A}]}*fastqc*
 
+fi
+
 ######
 # Assemble
 ######
+if [ -s $Outdir/Assemble/${file}_QC_contigs.fasta ]; then
+    echo "Skipped ${file} assembly."
+else
+
 $spades_path $spades_option -1 $Outdir/QC/${file}_QC_R1_001.fastq -2 $Outdir/QC/${file}_QC_R2_001.fastq -o $Outdir/Assemble/${file}_QC_SPAdes
 cp $Outdir/Assemble/${file}_QC_SPAdes/contigs.fasta $Outdir/Assemble/${file}_QC_contigs.fasta
 rm $Outdir/Assemble/${file}_QC_SPAdes/ -r
 
+fi
+
 ######
 # make mapping index for cross reference
-#####
+#####a
+if [ -s $Outdir/Mapping_index/${file}_QC_contigs_500_index.amb ]; then
+    echo "Skipped ${file} bwa indexing."
+else
+
 python $ccSAGdir/bin/longercontig.py $Outdir/Assemble/${file}_QC_contigs.fasta $Outdir/Assemble/${file}_QC_contigs_500.fasta 500
 bwa index -p $Outdir/Mapping_index/${file}_QC_contigs_500_index $Outdir/Assemble/${file}_QC_contigs_500.fasta
+
+fi
 
 done
 
@@ -63,6 +81,11 @@ do
 
 for index in `\ls $Outdir/QC | grep "_QC_R1_001.fastq$" | sed 's/_R1_001.fastq/\t/g'`;
 do
+
+if [ -s $Outdir/Mapping/${file}_${index}_uniq_classify.sam ]; then
+    echo "Skipped ${file} mapping to ${index}."
+else
+
 if test $file != $index
 then
  bwa mem $Outdir/Mapping_index/${index}_contigs_500_index $Outdir/QC/${file}_R1_001.fastq $Outdir/QC/${file}_R2_001.fastq > $Outdir/Mapping/${file}_${index}.sam
@@ -70,10 +93,11 @@ then
  grep -e "^@" -v $Outdir/Mapping/${file}_${index}_uniq.sam > $Outdir/Mapping/${file}_${index}_uniq_classify.sam
  rm $Outdir/Mapping/${file}_${index}.sam
 fi
+
+fi
 done
 
 python $ccSAGdir/bin/classify_chimera_read.py $Outdir/Mapping ${file}
-rm $Outdir/Mapping/${file}_*_uniq_classify.sam
 
 mkdir -p $Outdir/${file}_chimera
 mkdir -p $Outdir/${file}_chimera/QC
@@ -103,11 +127,13 @@ done
 rm $Outdir/${file}_chimera -r
 
 cat $Outdir/QC/${file}_multicut_chimera.fastq $Outdir/QC/${file}_normal_R1_001.fastq $Outdir/QC/${file}_normal_R2_001.fastq > $Outdir/QC/${file}_cleaned.fastq
+
 done
 
 ######
 # Assemble using cleaned fastq
 ######
+
 echo -n > $Outdir/QC/cleaned_merge.fastq
 for cleaned_reads in `\ls $Outdir/QC | grep "_QC_cleaned.fastq$"`;
 do
@@ -116,4 +142,4 @@ done
 
 $spades_path $spades_option -s $Outdir/QC/cleaned_merge.fastq -o $Outdir/Assemble/cleaned_merge_SPAdes
 cp $Outdir/Assemble/cleaned_merge_SPAdes/contigs.fasta $Outdir/$cleanedcontig
-rm $Outdir/Assemble/cleaned_merge_QC_SPAdes/ -r
+
