@@ -253,8 +253,6 @@ for data in pre_howto_connect_list:
 		del data[0]
 		while len(data) > 0:
 			for i in range(len(data)):
-				print("d " + str(data[i]))
-				print("p " + str(processed))
 				if len(set([processed[0][0], processed[-1][0], data[i][0][0], data[i][1][0]])) != 3: continue
 				pre_processed = data[i]
 				del data[i]
@@ -264,7 +262,7 @@ for data in pre_howto_connect_list:
 
 count = 0
 for data in howto_connect_list:
-#	print(data)
+	print(data)
 	count = count + 1
 	name = ">CONSENSUS_" + str(count)
 	consensus= ""
